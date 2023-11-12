@@ -12,7 +12,15 @@ resource "aws_instance" "app_server" {
 
   key_name = "kv-key"
 
+  user_data = <<-EOF
+  #!/bin/bash
+  sudo apt-get update -y
+  curl -fsSL https://get.docker.com -o get-docker.sh
+  sudo sh get-docker.sh
+  sudo usermod -aG docker ubuntu
+  EOF
+
   tags = {
-    Name = "myec2-inst1"
+    Name = "myec2-dock"
   }
 }
