@@ -6,7 +6,7 @@ pipeline {
     stages{
         stage('Git Checkout'){
             steps{
-                git branch: 'main', credentialsId: 'Git_Cred', url: 'https://github.com/kumariseait/dock_terra.git'
+                git branch: 'main', credentialsId: 'Git_ID', url: 'https://github.com/kumariseait/dock_terra.git'
             }
         }
         stage('Terraform Initilization'){
